@@ -1,0 +1,68 @@
+.naslov{
+    color: #570861;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    height: 80px;
+    font-size: 50px;
+    vertical-align: middle;
+}
+
+.prijava{
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.dugmici{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.slika1{
+    height: 40px;
+    width: 70px;
+    
+}
+
+.slika2{
+    height: 35px;
+    width: 35px;
+    
+}
+
+.dugme{
+    height:40px;
+    width: 100px;
+    margin-left:10px ;
+    margin-right: 10px;
+}
+
+.natpis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #570861;
+}
+
+.okvir{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    width:  330px;
+    text-align: center;
+}
+
+.okolna{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

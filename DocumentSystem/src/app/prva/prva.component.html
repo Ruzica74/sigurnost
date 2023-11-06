@@ -1,0 +1,33 @@
+<div class="naslov">Prijava</div>
+<div class="popuni" id="popuni" name="popuni"> &nbsp; </div>
+<div class="losiKredencijali" id="greska" name="greska">Nisu unešeni dobri kredencijali za prijavu!</div>
+<div class="okolna">
+<div class="okvir" [class.mat-elevation-z2]="!isActive"
+[class.mat-elevation-z8]="isActive">
+    <form [formGroup]="loginForma">
+        <div class="prijava">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Korisničko ime</mat-label>
+                <input matInput placeholder="Korisničko ime" value="" type='text' formControlName="kIme" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Lozinka</mat-label>
+                <input matInput placeholder="Lozinka" value="" type="password" formControlName="lozinka" required>
+            </mat-form-field>
+            <button mat-raised-button (click)="dalje()">Dalje</button>
+        </div>
+    </form>
+    <div class="natpis">
+        <label style="text-align: center; width: 100%;">Prijavite se pomoću postojećeg naloga:</label>
+    </div>
+
+    <div class="dugmici">
+        <!-- a href="https://localhost:8433/login/oauth2/code/google">Link</a> 
+        <a href="https://localhost:8433/oauth2/authorization/google">Link2</a> 
+        <button mat-raised-button class="dugme" (click)="googleDugme()"><img class='slika2' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"></button -->
+        <a href="https://localhost:8433/oauth2/authorization/google"><button mat-raised-button class="dugme"><img class='slika2' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"></button></a>  
+    </div>
+</div>
+</div>
+

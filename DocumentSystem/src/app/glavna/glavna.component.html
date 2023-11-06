@@ -1,0 +1,153 @@
+
+<div class="glavna" *ngIf="this.korisnik.role.toString() != 'ADMINS'">
+    <p class="meni" >
+        <mat-toolbar>
+            <button #manuBtn mat-icon-button aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="dodajFajl()">
+                    <mat-icon>add</mat-icon>
+                    <span>Novi fajl</span>
+                  </button>
+                <button mat-menu-item *ngIf="this.korisnik.role.toString() == 'ADMIND'" (click)="dodajDir()">
+                  <mat-icon>add</mat-icon>
+                  <span>Novi direktorijum</span>
+                </button>
+                <button mat-menu-item [matMenuTriggerFor]="brisanje" *ngIf="this.korisnik.role.toString() == 'ADMIND'">
+                    <mat-icon>delete</mat-icon>
+                    <span>Obriši direktorijum</span>
+                  </button>
+              </mat-menu >                
+              <mat-menu #brisanje='matMenu'>
+                <ng-template ngFor let-i [ngForOf]="trenutnaListaDir" matMenuContent> 
+                    <li *ngIf="i != null">
+                        <button mat-menu-item (click)="brisanjeDir(i)">
+                            <span>{{i.naziv}}</span>
+                        </button>
+                    </li>
+                </ng-template>
+              </mat-menu>
+          <span>Trenutni folder: {{this.trenutniDir.naziv}}</span>
+        </mat-toolbar>
+    </p>      
+    <button mat-raised-button class="dugme strana" (click)="nazad()"><img class='slika slikaOkreni' src="https://cdn2.iconfinder.com/data/icons/office-265/128/_Arrow_direction_return_turning-512.png"></button>
+
+    <div class="folderi">
+        <!--div class="folder">
+            <button mat-raised-button><img class="slika" src="https://cdn1.iconfinder.com/data/icons/aami-flat-folders/64/folder-02-256.png"></button>
+            <label>{{this.korisnik.direktorijum.naziv}}</label>
+        </div -->
+
+        <ul *ngFor="let dir of this.trenutnaListaDir">
+            <li>
+                <div class="folder">
+                    <button mat-raised-button (click)="klikDir(dir)"><img class="slika" src="https://cdn1.iconfinder.com/data/icons/aami-flat-folders/64/folder-02-256.png"></button>
+                    <label>{{dir.naziv}}</label>
+                </div>
+            </li>
+        </ul>
+        
+
+        <ul *ngFor="let f of this.trenutnaListaFajl">
+            <li>
+                <div class="folder" #rightBtn>
+                    <button mat-raised-button #rightBtn [matMenuTriggerFor]="rightMenu" (click)="uzimanjeId(f)"><img class="slika" src="https://cdn3.iconfinder.com/data/icons/vol-2/128/document-256.png"></button>
+                    <label>{{f.naziv}}</label>
+                </div>
+            </li>
+        </ul>
+
+        <div style="visibility: hidden; position: fixed;"  #rightBtn
+            [style.left]="menuTopLeftPosition.x" 
+            [style.top]="menuTopLeftPosition.y" 
+            [matMenuTriggerFor]="rightMenu">
+        </div> 
+         
+        <mat-menu #rightMenu="matMenu"> 
+            <ng-template ngFor let-i [ngForOf]="listaF" matMenuContent> 
+                <li *ngIf="i != null && i.naziv != 'Premjesti'">
+                    <button mat-menu-item (click)="razrjesenjeDesnogKlika(i.naziv)">
+                        <mat-icon>{{i.ikonica}}</mat-icon>
+                        <span>{{i.naziv}}</span>
+                    </button>
+                </li>               
+            </ng-template> 
+            <button *ngIf="this.korisnik.role.toString() == 'ADMIND'" mat-menu-item [matMenuTriggerFor]="dirs">
+                <mat-icon>file_copy</mat-icon>
+                <span>Premjesti</span>
+            </button>
+        </mat-menu> 
+        <mat-menu #dirs='matMenu'>
+            <ng-template ngFor let-i [ngForOf]="listaDir" matMenuContent> 
+                <li *ngIf="i != null">
+                    <button mat-menu-item (click)="premjesti(i)">
+                        <span>{{i.naziv}}</span>
+                    </button>
+                </li>
+            </ng-template>
+          </mat-menu>
+
+        <!-- button mat-raised-button (click)="klik()"><img class="slika" src="https://cdn3.iconfinder.com/data/icons/vol-2/128/document-256.png"></button>
+        <button mat-raised-button (click)="klik()"><img class="slika" src="https://cdn3.iconfinder.com/data/icons/vol-2/128/document-256.png"></button -->
+    </div>
+</div>
+
+<div class="glavna" *ngIf="this.korisnik.role.toString() == 'ADMINS'">
+    <p class="meni" >
+        <mat-toolbar>
+            <button #manuBtn mat-icon-button aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="pregledAktivnosti()">
+                    <mat-icon> table_chart</mat-icon>
+                    <span>Pregled aktivnosti</span>
+                  </button>
+              </mat-menu>
+          <span>Trenutni folder: {{this.trenutniDir.naziv}}</span>
+        </mat-toolbar>
+    </p>      
+    <button mat-raised-button class="dugme strana" (click)="nazad()"><img class='slika slikaOkreni' src="https://cdn2.iconfinder.com/data/icons/office-265/128/_Arrow_direction_return_turning-512.png"></button>
+    <div class="folderi">
+        <ul *ngFor="let dir of this.trenutnaListaDir">
+            <li>
+                <div class="folder">
+                    <button mat-raised-button (click)="klikDir(dir)"><img class="slika" src="https://cdn1.iconfinder.com/data/icons/aami-flat-folders/64/folder-02-256.png"></button>
+                    <label>{{dir.naziv}}</label>
+                </div>
+            </li>
+        </ul>
+        
+
+        <ul *ngFor="let f of this.trenutnaListaFajl">
+            <li>
+                <div class="folder" #rightBtn>
+                    <button mat-raised-button #rightBtn [matMenuTriggerFor]="rightMenu" (click)="uzimanjeId(f)"><img class="slika" src="https://cdn3.iconfinder.com/data/icons/vol-2/128/document-256.png"></button>
+                    <label>{{f.naziv}}</label>
+                </div>
+            </li>
+        </ul>
+
+        <div style="visibility: hidden; position: fixed;"  #rightBtn
+            [style.left]="menuTopLeftPosition.x" 
+            [style.top]="menuTopLeftPosition.y" 
+            [matMenuTriggerFor]="rightMenu">
+        </div> 
+         
+        <mat-menu #rightMenu="matMenu"> 
+            <ng-template ngFor let-i [ngForOf]="listaF" matMenuContent> 
+                <li *ngIf="i != null && i.naziv != 'Premjesti'">
+                    <button mat-menu-item (click)="razrjesenjeDesnogKlika(i.naziv)">
+                        <mat-icon>{{i.ikonica}}</mat-icon>
+                        <span>{{i.naziv}}</span>
+                    </button>
+                </li>                
+            </ng-template> 
+        </mat-menu>
+    </div>
+</div>
+
+<div class="footer">
+    <button mat-raised-button (click)="odloguj()">Odloguj se</button>
+  </div>

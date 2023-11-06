@@ -1,0 +1,19 @@
+<div class="naslov">Prijava</div>
+
+
+<div class="okolna">
+<div class="okvir" [class.mat-elevation-z2]="!isActive"
+[class.mat-elevation-z8]="isActive">
+<label class="natpis">Unesite kod koji ste dobili na mobilnom telefonu</label>
+    <form [formGroup]="unos">
+        <div class="prijava">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Kod</mat-label>
+                <input matInput placeholder="Kod" value="" type='text' formControlName="kod" required>
+            </mat-form-field>
+
+            <button mat-raised-button style="margin-top: 15px;" type="submit" (click)="prijava()">Dalje</button>
+        </div>
+    </form>
+</div>
+</div>

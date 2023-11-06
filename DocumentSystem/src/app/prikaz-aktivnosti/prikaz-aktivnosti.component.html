@@ -1,0 +1,46 @@
+<div class="main">
+    <div>
+      <label>Notifikacije</label>
+        <ul *ngFor="let n of this.notifikacije">
+            
+            <li>
+                <button mat-raised-button (click)="klik(n)"><label class='labela' id="labela">Obrisan je objekat: {{n.objekat}}</label></button>       
+            </li>
+        </ul>
+        <label class="obvj" id="obvj">Pregledana aktivnost brisanja: {{objekatNaziv}}</label>
+    </div>
+     <div class="tabela">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Korisnicko">
+          <th mat-header-cell *matHeaderCellDef> Korisničko ime </th>
+          <td mat-cell *matCellDef="let element"> {{element.korisnik.korisnickoIme}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Aktivnost">
+          <th mat-header-cell *matHeaderCellDef> Aktivnost </th>
+          <td mat-cell *matCellDef="let element"> {{element.akcija}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="objekat">
+          <th mat-header-cell *matHeaderCellDef> Naziv objekta </th>
+          <td mat-cell *matCellDef="let element"> {{element.objekat}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+</div>

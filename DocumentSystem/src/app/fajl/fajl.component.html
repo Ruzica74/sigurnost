@@ -1,0 +1,15 @@
+<div class="glavna">
+    <button mat-raised-button class="dugme strana" (click)="nazad()"><img class='slika slikaOkreni' src="https://cdn2.iconfinder.com/data/icons/office-265/128/_Arrow_direction_return_turning-512.png"></button>
+    <div class="okvir" [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive" *ngIf="this.izbor == 1">
+        <div>
+            {{this.text}}
+        </div>
+    </div>
+    <div *ngIf="this.izbor == 2" class="glavna">
+        <textarea class="textVelicina" [(ngModel)]="text"></textarea>
+        <div class="dugme">
+            <button mat-raised-button (click)="upload()" >Sačuvaj i otpremi</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="main">
+  <div class="tabela">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="Ime">
+          <th mat-header-cell *matHeaderCellDef> Ime </th>
+          <td mat-cell *matCellDef="let element"> {{element.ime}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Prezime">
+          <th mat-header-cell *matHeaderCellDef> Prezime </th>
+          <td mat-cell *matCellDef="let element"> {{element.prezime}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="kIme">
+          <th mat-header-cell *matHeaderCellDef> Korisničko ime </th>
+          <td mat-cell *matCellDef="let element"> {{element.korisnickoIme}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Rola">
+          <th mat-header-cell *matHeaderCellDef> Rola </th>
+          <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Izmjeni">
+            <th mat-header-cell *matHeaderCellDef> Izmjeni </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-raised-button (click)="izmjeni(element)"> Izmjeni</button>  
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Obrisi">
+            <th mat-header-cell *matHeaderCellDef> Obriši </th>
+            <td mat-cell *matCellDef="let element">
+               <button mat-raised-button (click)="obrisi(element)"> Obriši</button>  </td>
+        </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+
+    <div class="dugmici">
+        <button mat-raised-button class="dugme" (click)="kreirajKlijenta()">Kreiraj klijenta</button>
+        <button mat-raised-button class="dugme" (click)="kreirajAdminD()">Kreiraj administratora dokumenata</button>
+    </div>
+    <div class="footer">
+      <button mat-raised-button class="dugme" (click)="odloguj()">Odloguj se</button>
+    </div>
+</div>

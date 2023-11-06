@@ -1,0 +1,29 @@
+table{
+    width:60%
+
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+ul{
+    list-style: none;
+}
+
+.obvj{
+    display: none;
+}
+table{
+    width: 100%;
+}
+
+.tabela{
+    height: 400px;
+    width: 70%;
+    overflow: auto;
+}

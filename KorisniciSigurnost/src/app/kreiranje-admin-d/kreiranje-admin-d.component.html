@@ -1,0 +1,50 @@
+<div class="okolna">
+    <div class="okvir" [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive">
+        <form [formGroup]="unosKlijent">
+            <div class="main">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Korisničko ime</mat-label>
+                    <input matInput placeholder="Korisničko ime" value="" type='text' pattern="^[ A-Za-z0-9_.&+-]*$" formControlName="kIme" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Ime</mat-label>
+                    <input matInput placeholder="Ime" value="" type='text' pattern="^[A-Za-z ]*$" formControlName="ime" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Prezime</mat-label>
+                    <input matInput placeholder="Prezime" value="" type='text' pattern="^[A-Za-z ]*$" formControlName="prezime" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" value="" type='text' pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Broj mobilnog</mat-label>
+                    <input matInput placeholder="Broj mobilnog" value="" type='text' pattern="^[0-9+]*$" formControlName="mobilni" required>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Odaberite direktorijum</mat-label>
+                    <mat-select formControlName="dir"  name="region" required>
+                        <mat-option *ngFor="let d of direktorijumi" [value]="d.naziv">
+                        {{d.naziv}}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+    
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Lozinka</mat-label>
+                    <input matInput placeholder="Lozinka" value="" type="password" pattern="^[ A-Za-z0-9_.&+-]{12,}$" formControlName="lozinka" required>
+                </mat-form-field>
+
+                <button mat-raised-button (click)="sacuvaj()">Sačuvaj</button>
+            </div>
+        </form>
+    </div>
+    </div>

@@ -1,0 +1,42 @@
+.okvir{
+    margin-top: 30px;
+    width:80%;
+    height: auto;
+}
+
+.textVelicina{
+    width: 500px;
+  height: 200px;
+}
+
+.dugme{
+    align-self: center;
+    margin-top: 20px;
+}
+
+.glavna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.strana{
+    align-self: flex-end;
+}
+
+.slikaOkreni{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.dugme{
+    height:50px;
+    width: 50px;
+    padding: 3px;
+}
+
+.slika{
+    height:50px;
+    width: 50px;
+}

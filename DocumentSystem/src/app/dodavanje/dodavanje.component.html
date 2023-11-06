@@ -1,0 +1,37 @@
+
+<div class="main" *ngIf="!daLiJeDir">
+    <div class="inputs">
+        <input class="form-control" type="file" accept=".txt"  class="dio"
+                (change)="onChange($event)">
+    
+        <button mat-raised-button (click)="onUpload()"  class="dio"
+            class="btn btn-success">
+            Otpremi
+        </button>
+    </div>
+    <div class="obavjestenjeDobar" id="obavjestenjeDobar">
+        Fajl je dodat.
+    </div>
+    <div class="obavjestenjeLos" id="obavjestenjeLos">
+        Fajl nije dodat.
+    </div>
+
+</div>
+
+<div class="main" *ngIf="daLiJeDir">
+    <div class="inputs">
+        <input class="form-control"  class="dio" [(ngModel)]="imeDir">
+    
+        <button mat-raised-button (click)="noviDir()"  class="dio"
+            class="btn btn-success">
+            Otpremi
+        </button>
+    </div>
+    <div class="obavjestenjeDobar" id="obavjestenjeDobar1">
+        Direktorijum je dodat.
+    </div>
+    <div class="obavjestenjeLos" id="obavjestenjeLos1">
+        Direktorijum nije dodat.
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+.obavjestenjeDobar{
+    display: none
+}
+
+.obavjestenjeLos{
+    display: none
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+
+.dio{
+    margin: 20px;
+}
+
+.inputs{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
