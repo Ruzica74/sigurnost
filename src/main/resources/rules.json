@@ -1,0 +1,139 @@
+{
+  "rules": [
+    {
+      "methods": ["GET"],
+      "pattern": "/test",
+      "roles": ["ADMINS","ADMIND"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/dir/{id}",
+      "roles": ["ADMINS","ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/fajl/sadrzaj/{id}",
+      "roles": ["ADMINS","ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/dir/dirs/{id}",
+      "roles": ["ADMINS","ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/dir/fajls/{id}",
+      "roles": ["ADMINS","ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/dir/{id}",
+      "roles": ["ADMINS","ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/fajl/izmjeni/{id}",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/fajl/add",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/dir/add",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["DELETE"],
+      "pattern": "/fajl/{id}",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["DELETE"],
+      "pattern": "/dir/{id}",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/fajl/newFileContent/{id}",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/fajl/premjesti/{id}",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/log/add",
+      "roles": ["ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/log/all",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/log/notifikacije",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/log/notifikacije",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/log/update/{id}",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/sendSms/{id}",
+      "roles": ["ADMINS", "ADMIND","KLIJENT"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/korisnici/all",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/korisnici/allDirs",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/korisnici/addUser",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/korisnici/addAdmin",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/korisnici/updateUser",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/korisnici/updateAdmin",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["DELETE"],
+      "pattern": "/korisnici/delete/{id}",
+      "roles": ["ADMINS"]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/korisnici/getOne/{id}",
+      "roles": ["ADMINS"]
+    }
+  ]
+}
